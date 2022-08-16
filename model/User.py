@@ -1,9 +1,8 @@
-
-
 class User:
-
+    """
+        Classe do Usuário.
+    """
     ttask: int
-    
     def __init__(self, _ttask: int) -> None:
         self.ttask = _ttask
 

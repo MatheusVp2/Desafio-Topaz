@@ -6,13 +6,16 @@ from model.ServerStatusEnum import ServerStatusEnum
 
 
 class Server:
-    
+    """
+        Classe do Servidor.
+    """
+
     name: str
     users : List[User]
     ticks: int
     umax: int
     status: str
-    
+
     def __init__(self, _name: str, user: User, _umax: int) -> None:
         self.users = [ user ]
         self.ticks = 0
@@ -53,7 +56,7 @@ class Server:
         self.__add_tick()
         if self.is_finsh_tasks():
             self.close_server()
-        
+
     def add_new_user(self, user: User) -> None:
         """
             Metodo de alocação de novo usuario para o servidor.
@@ -61,7 +64,7 @@ class Server:
         if self.is_full():
             raise NumberOfUsersExceededException("Quantiade de usuarios no servidor excedida.")
         self.users.append(user)
-    
+
     def get_len_users(self) -> int:
         """
             Metodo de controle que retorna quantidade de usuarios no servidor.
@@ -86,7 +89,7 @@ class Server:
             por não haver mais usuario conectados.
         """
         return self.get_len_users() == 0
-    
+
     def is_active(self):
         """
             Metodo de verificação se o servidor esta ativo
@@ -102,4 +105,3 @@ class Server:
     def __str__(self) -> str:
         users_qtd = self.get_len_users()
         return f"Server( name={self.name}, users={ users_qtd }, ticks={ self.ticks }, status={ self.status } )"
-        

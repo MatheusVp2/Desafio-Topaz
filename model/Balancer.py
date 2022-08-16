@@ -7,7 +7,10 @@ from error import LimitTasksException, LimitUmaxException
 
 
 class Balancer:
-    
+    """
+        Classe do Balanceador de carga.
+    """
+
     ttask: int
     umax: int
     users: List[int]
@@ -20,17 +23,17 @@ class Balancer:
         self.loggers_output_file = []
         self.ttask = int( data.pop(0) )
         self.umax = int( data.pop(0) )
-        self.users = list( map( lambda num : int(num), data ) )
+        self.users = [ int(x) for x in data ]
         self.__validate_limits()
 
     def __validate_limits(self) -> None:
         """
-            Função de validação dos limits de tasks e umax permitidos, gerando uma exceção caso venha
-            passar dos limits permitidos.
+            Função de validação dos limits de tasks e umax permitidos, gerando uma exceção
+            caso venha passar dos limits permitidos.
         """
         if self.ttask < 1 or self.ttask > 10:
             raise LimitTasksException("Quantidade de ttask validas são entre 1 e 10.")
-        
+
         if self.umax < 1 or self.umax > 10:
             raise LimitUmaxException("Quantidade de umax validas são entre 1 e 10.")
 
@@ -39,8 +42,8 @@ class Balancer:
             Função de leitura de arquivo input.txt, retornando uma lista de informações das
             linhas do arquivo.
         """
-        with open("input.txt", "r") as fs:
-            return fs.read().splitlines()
+        with open("input.txt", "r", encoding="utf-8") as stream:
+            return stream.read().splitlines()
 
     def __get_next_amount_user(self) -> int | None:
         """
@@ -55,7 +58,8 @@ class Balancer:
             quantidade necessaria ou não de usuarios a serem alocados, caso não exista na lista
             retorna None.
         """
-        return self.servers[-1] if len( self.servers ) else None
+        amount_servers = len( self.servers )
+        return self.servers[-1] if amount_servers else None
 
     def __process_servers(self) -> None:
         """
@@ -104,26 +108,26 @@ class Balancer:
             Metodo de escrita no arquivo de output.
         """
         text = "\n".join( self.loggers_output_file )
-        with open("output.txt", "w") as fs:
-            fs.write(text)
+        with open("output.txt", "w", encoding="utf-8") as stream:
+            stream.write(text)
 
     def start(self) -> None:
         """
             Metodo principal do balancemento de carga.
         """
         process_completed = False
-        while process_completed == False:
+        while not process_completed:
             next_amount_user = self.__get_next_amount_user()
-            if next_amount_user != None:
+            if next_amount_user is not None:
                 for _ in range(next_amount_user):
                     last_server = self.__get_last_server()
-                    if last_server == None:
+                    if last_server is None:
                         self.__create_new_server()
                     elif last_server.is_full():
                         self.__create_new_server()
                     elif not last_server.is_full():
                         self.servers[-1].add_new_user( User( self.ttask ) )
-            
+
             self.loggers_output_file.append( self.__get_logger_output() )
             self.__process_servers()
 
@@ -132,7 +136,11 @@ class Balancer:
                 self.loggers_output_file.append('0')
                 self.loggers_output_file.append( self.__get_ticks_cost_count( 1 ) )
 
-        self.__write_logger_file()            
-    
+        self.__write_logger_file()
+
     def __str__(self) -> str:
-        return f"Balancer( ttask={self.ttask}, umax={self.umax}, users={self.users}, servers={self.servers} )"
+        return f"""Balancer(
+            ttask={self.ttask}, 
+            umax={self.umax}, 
+            users={self.users}, 
+            servers={self.servers} )"""
