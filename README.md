@@ -1,5 +1,7 @@
 # Desafio Topaz
 
+[![Coverage](https://raw.githubusercontent.com/MatheusVp2/Desafio-Topaz/1c2443099fcb3c9965e4bd67e79dac101ddb28aa/public/coverage.svg)](https://github.com/MatheusVp2/Desafio-Topaz)
+
 ### Instruções
 - Resolva o problema proposto no documento em anexo e disponibilize o código via github, nos envie o link do seu repositório quando finalizar a tarefa. Caso não possua afinidade com Python o teste pode ser desenvolvido em outra linguagem, mas damos preferência para resoluções em Python 3, caso a resolução seja em outra linguagem descreva no README a forma de executar o seu projeto.
 
