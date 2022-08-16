@@ -1,0 +1,6 @@
+[report]
+exclude_lines = 
+    def __
+    if __name__ == "__main__"
+    unittest.main()
+    self.__
