@@ -23,6 +23,7 @@ O desaﬁo é fazer um programa em Python que recebe usuários e os aloca nos se
 ### Dicionário
 - tick = 'unidade básica de tempo da simulação'
 - ttask = 'o número de ticks de uma tarefa'
+- umax = 'capacidade de usuarios no servidor simultaneamente'
 
 ### Input
 - Primeira Linha possui o valor de ttask.
