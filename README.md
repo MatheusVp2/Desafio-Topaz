@@ -78,7 +78,7 @@ O desaﬁo é fazer um programa em Python que recebe usuários e os aloca nos se
 | 7    |       | 2      | 1 servidor para 2 usuários. (nenhum servidor criado ou removido)   |
 | 8    |       | 1      | 1 servidor para 1 usuário. (nenhum servidor criado ou removido)    |
 | 9    |       | 1      | 1 servidor para 1 usuário. (nenhum servidor criado ou removido)    |
-|      |       | 0      | nenhum servidor e nenhum usuário. (1 servidor removido)            |
+| 10   |       | 0      | nenhum servidor e nenhum usuário. (1 servidor removido)            |
 |      |       | 15     | Custo Total: R$1 x 5 ticks ( primeira vm ) + R$1 x 4 ticks ( segunda vm ) + R$1 x 6 ticks ( terceira vm ) = R$15     |
 
 
