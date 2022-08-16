@@ -52,7 +52,7 @@ class TestBalancer(unittest.TestCase):
 1
 0
 1"""
-        with open("input.txt", "w", encoding="utd-8") as stream:
+        with open("input.txt", "w", encoding="utf-8") as stream:
             stream.write(input_text)
 
 
