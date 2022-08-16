@@ -94,18 +94,20 @@ O desaﬁo é fazer um programa em Python que recebe usuários e os aloca nos se
 ```
 .
 ├── error
-│   └── __init__.py
+│   └── __init__.py
 ├── model
-│   ├── Balancer.py
-│   ├── Server.py
-│   ├── ServerStatusEnum.py
-│   ├── User.py
-│   └── __init__.py
+│   ├── Balancer.py
+│   ├── Server.py
+│   ├── ServerStatusEnum.py
+│   ├── User.py
+│   └── __init__.py
+├── public
+│   └── coverage.svg
 ├── test
-│   ├── test_server.py
-│   └── test_user.py
+│   ├── test_balancer.py
+│   ├── test_server.py
+│   └── test_user.py
 ├── input.txt
 ├── main.py
-├── output.txt
-└── readme.md
+└── requirements.txt
 ```
